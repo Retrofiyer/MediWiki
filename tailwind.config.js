@@ -1,0 +1,75 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      colors: {
+        primary: {
+          100: "#d2dbdd",
+          200: "#a6b7bc",
+          300: "#79939a",
+          400: "#4d6f79",
+          500: "#204b57",
+          600: "#1a3c46",
+          700: "#132d34",
+          800: "#0d1e23",
+          900: "#060f11",
+        },
+        secundary: {
+          100: "#d0dfe8",
+          200: "#a0bfd0",
+          300: "#719eb9",
+          400: "#417ea1",
+          500: "#125e8a",
+          600: "#0e4b6e",
+          700: "#0b3853",
+          800: "#072637",
+          900: "#04131c",
+        },
+        white: {
+          100: "#fdfffe",
+          200: "#fbfffc",
+          300: "#fafffb",
+          400: "#f8fff9",
+          500: "#f6fff8",
+          600: "#c5ccc6",
+          700: "#949995",
+          800: "#626663",
+          900: "#313332",
+        },
+        teal: {
+          100: "#d6ece7",
+          200: "#addacf",
+          300: "#84c7b7",
+          400: "#5bb59f",
+          500: "#32a287",
+          600: "#28826c",
+          700: "#1e6151",
+          800: "#144136",
+          900: "#0a201b",
+        },
+        red: {
+          100: "#ffddd6",
+          200: "#ffbcad",
+          300: "#ff9a85",
+          400: "#ff795c",
+          500: "#ff5733",
+          600: "#cc4629",
+          700: "#99341f",
+          800: "#662314",
+          900: "#33110a",
+        },
+      },
+    },
+  },
+  plugins: [],
+};
