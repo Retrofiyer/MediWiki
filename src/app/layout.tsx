@@ -1,9 +1,5 @@
 import "./globals.css";
 import Providers from "./providers";
-import Navbar from "./components/navbar";
-import Loader from "@/app/components/loader";
-
-const Loading=true;
 
 export default function RootLayout({
   children,
@@ -12,12 +8,11 @@ export default function RootLayout({
 }) {
   return (
     <html>
-         <body>
-          <Providers>
-            <Navbar />
-            {children}
-          </Providers>
-        </body>
+      <body>
+        <Providers>
+        {children}
+        </Providers>
+      </body>
     </html>
   );
 }

@@ -6,8 +6,7 @@ import bcrypt from "bcryptjs";
 export async function POST(request: Request) {
     //Recibo los datos
     const { fullname, email, password } = await request.json()
-    console.log(fullname, email, password)
-
+    
     //Compruebo que la contraseña no esté vacia o sea menor a 6 caracteres
     if (!password || password.length < 6) return NextResponse.json({
         message: "Contraseña tiene que tener más de 6 caracteres"

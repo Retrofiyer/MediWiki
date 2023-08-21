@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
 import { connectDB } from "@/Libs/mongodb";
 import User from "@/models/user";
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 
 const handler = NextAuth({
@@ -38,9 +38,9 @@ const handler = NextAuth({
       return session;
     },
   },
-  pages:{
-    signIn: '/login',
-  }
+  pages: {
+    signIn: "/pages/login",
+  },
 });
 
 export { handler as GET, handler as POST };

@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/app/components/footer";
+import NavbarL from "@/app/components/navbarl";
 import axios, { AxiosError } from "axios";
 import { FormEvent, useState } from "react";
 import { signIn, signOut } from "next-auth/react";
@@ -29,7 +31,7 @@ function RegisterPage() {
         redirect: false,
       });
 
-      if (res?.ok) return router.push("/dashboard/profile");
+      if (res?.ok) return router.push("/pages/profile");
 
       console.log(res);
     } catch (error) {
@@ -40,54 +42,91 @@ function RegisterPage() {
     }
   };
   return (
-    <div className="justify-center h-[calc(100vh-4rem)] flex items-center bg-secundary-400">
-      <form onSubmit={handleSubmit} className="bg-white-500 px-8 py-10 w-3/12">
-        {error && <div className="bg-red-500 text-white p-2 mb-2">{error}</div>}
-
-        <h1 className="font-serif text-neutral-900 text-center text-4xl">
-          {" "}
-          Registrate{" "}
-        </h1>
-        <br></br>
-        <div
-          style={{
-            width: "100",
-            height: "120px",
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
+    <body>
+      <NavbarL/>
+      <div
+        className="justify-center h-[calc(100vh-4rem)] flex items-center bg-gradient-to-br from-white-400 to-secundary-400"
+        style={{
+          backgroundImage: 'url("/img/fondo.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white-500 bg-opacity-80 px-14 py-10 md:w-3/12 shadow-2xl rounded-3xl"
         >
-          <Image src="/img/logon.png" width={616 / 5} height={627 / 5} alt="" />
-        </div>
-        <a className="font-serif text-neutral-900">Nombre y Apellido</a>
-        <input
-          type="text"
-          placeholder="Juanito Peréz"
-          name="fullname"
-          className="bg-slate-200 text-black  px-4 py-2 block mb-2 w-full"
-        />
-        <a className="font-serif text-neutral-900">Email</a>
-        <input
-          type="email"
-          placeholder="@email"
-          name="email"
-          className="bg-slate-200 text-black px-4 py-2 block mb-2 w-full"
-        />
-        <a className="font-serif text-neutral-900">Contraseña</a>
-        <input
-          type="password"
-          placeholder="********"
-          name="password"
-          className="bg-slate-200 text-black px-4 py-2 block mb-2 w-full"
-        />
-        <br></br>
-        <button className="flex w-full justify-center rounded-xl bg-primary-500 hover:bg-primary-400 px-4 py-2 font-serif transition ease-in delay-100 hover:scale-110 duration-150">
-          {" "}
-          Aceptar{" "}
-        </button>
-      </form>
-    </div>
+          {error && (
+            <div className="bg-red-600 text-white p-2 mb-2">{error}</div>
+          )}
+
+          <h1 className="font-serif text-neutral-900 text-center text-3xl md:text-4xl select-none mb-4">
+            MediWiki
+          </h1>
+
+          <div className="flex justify-center items-center mb-4">
+            <Image
+              src="/img/logon.png"
+              width={616 / 5}
+              height={627 / 5}
+              alt=""
+            />
+          </div>
+
+          <label
+            htmlFor="fullname"
+            className="font-serif text-neutral-900 select-none mb-1 block"
+          >
+            Nombre y Apellido
+          </label>
+          <input
+            type="text"
+            placeholder=""
+            name="fullname"
+            className="bg-white-100 bg-opacity-10 text-black block w-full mb-4 border-b border-gray-600 focus:outline-none focus:border-gray-800"
+          />
+          <label
+            htmlFor="email"
+            className="font-serif text-neutral-900 select-none mb-1 block"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            placeholder=""
+            name="email"
+            className="bg-white-100 bg-opacity-10 text-black block w-full mb-4 border-b border-gray-600 focus:outline-none focus:border-gray-800"
+          />
+
+          <label
+            htmlFor="password"
+            className="font-serif text-neutral-900 select-none mb-1 block"
+          >
+            Contraseña
+          </label>
+          <input
+            type="password"
+            placeholder=""
+            name="password"
+            className="bg-white-100 bg-opacity-10 text-black block w-full mb-6 border-b border-gray-600 focus:outline-none focus:border-gray-800"
+          />
+          <div className="flex items-center mb-2">
+            <input type="checkbox" id="termsCheckbox" className="mr-2" />
+            <label
+              htmlFor="termsCheckbox"
+              className="text-neutral-900 font-serif select-none"
+            >
+              He leído y acepto los <a className="underline hover:text-secundary-400">términos y condiciones </a> de uso
+            </label>
+          </div>
+          <button className="w-full rounded-xl bg-primary-500 hover:bg-primary-400 px-4 py-2 mb-2 mt-5 font-serif transition ease-in delay-50 hover:scale-105 duration-150">
+            Registrar
+          </button>
+        </form>
+      </div>
+      <Footer/>
+    </body>
   );
 }
 
